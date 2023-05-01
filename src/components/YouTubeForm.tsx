@@ -7,7 +7,8 @@ let renderCount = 0
 
 const YouTubeForm = () => {
   const form = useForm<FormValues>()
-  const { register, control, handleSubmit } = form
+  const { register, control, handleSubmit, formState } = form
+  const { errors } = formState
   //  bad case
   // const { name, ref, onChange, onBlur } = register("username")
   //   <S.StyledInput
@@ -36,46 +37,64 @@ const YouTubeForm = () => {
       you should check useForm type
       */}
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <S.StyledLabel htmlFor="username">Name</S.StyledLabel>
-        <S.StyledInput
-          type="text"
-          id="username"
-          {...register("username", {
-            required: {
-              value: true,
-              message: "Username is required",
-            },
-          })}
-        />
-
-        <S.StyledLabel htmlFor="email">E-mail</S.StyledLabel>
-        <S.StyledInput
-          type="email"
-          id="email"
-          {...register("email", {
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Invalid email format",
-            },
-            validate: {
-              notAdmin: (fieldValue) => {
-                return (
-                  fieldValue !== "admin@example.com" ||
-                  "Enter a different email"
-                )
+        <S.ItemWrapper>
+          <S.StyledLabel htmlFor="username">Name</S.StyledLabel>
+          <S.StyledInput
+            type="text"
+            id="username"
+            {...register("username", {
+              required: {
+                value: true,
+                message: "Username is required",
               },
-              notBlackListed: (fieldValue) => {
-                return (
-                  !fieldValue.endsWith("bad.com") ||
-                  "This domain is not allowed"
-                )
-              },
-            },
-          })}
-        />
+            })}
+          />
+          <S.StyledError>{errors.username?.message}</S.StyledError>
+        </S.ItemWrapper>
 
-        <S.StyledLabel htmlFor="channel">Channel</S.StyledLabel>
-        <S.StyledInput type="text" id="channel" {...register("channel")} />
+        <S.ItemWrapper>
+          <S.StyledLabel htmlFor="email">E-mail</S.StyledLabel>
+          <S.StyledInput
+            type="email"
+            id="email"
+            {...register("email", {
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Invalid email format",
+              },
+              validate: {
+                notAdmin: (fieldValue) => {
+                  return (
+                    fieldValue !== "admin@example.com" ||
+                    "Enter a different email"
+                  )
+                },
+                notBlackListed: (fieldValue) => {
+                  return (
+                    !fieldValue.endsWith("bad.com") ||
+                    "This domain is not allowed"
+                  )
+                },
+              },
+            })}
+          />
+          <S.StyledError>{errors.email?.message}</S.StyledError>
+        </S.ItemWrapper>
+
+        <S.ItemWrapper>
+          <S.StyledLabel htmlFor="channel">Channel</S.StyledLabel>
+          <S.StyledInput
+            type="text"
+            id="channel"
+            {...register("channel", {
+              required: {
+                value: true,
+                message: "Channel is required",
+              },
+            })}
+          />
+          <S.StyledError>{errors.channel?.message}</S.StyledError>
+        </S.ItemWrapper>
 
         <button>Submit</button>
       </form>

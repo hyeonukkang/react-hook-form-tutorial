@@ -7,7 +7,6 @@ interface ILabelProps {
 export const StyledLabel = styled.div<ILabelProps>`
   font-weight: bold;
   display: flex;
-  margin-bottom: 5px;
 `
 
 export const StyledInput = styled.input`
@@ -20,5 +19,15 @@ export const StyledInput = styled.input`
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
+`
+
+export const StyledError = styled.span`
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 5px;
+`
+
+export const ItemWrapper = styled.div`
   margin-bottom: 20px;
 `
