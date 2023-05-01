@@ -10,6 +10,11 @@
   - [Prerequisites](#prerequisites)
   - [Form Setup](#form-setup)
   - [Project Setup](#project-setup)
+  - [React Hook Form](#react-hook-form-1)
+    - [install](#install)
+    - [usage](#usage)
+    - [Managing Form State](#managing-form-state)
+    - [Managing Form State contd](#managing-form-state-contd)
 
 <br/>
 
@@ -104,4 +109,45 @@ Crucial aspect of any business application
 - cd demo
 - npm install
 - npm run dev
+```
+
+<br/>
+
+## React Hook Form
+
+---
+
+### install
+
+```shell
+npm install react-hook-form
+```
+
+### usage
+
+- Manage form data
+- Submit form data
+- Enforce validations and provide visual feedback
+
+### Managing Form State
+
+Every form has a few moving parts that keep changing from the time a user loads the form to the time they submit it.
+
+- current value of every field in the form
+- whether a field has been interacted with
+- whether a field's value has changed
+- whether the form is invalid
+- whetehr a field contains errors
+
+### Managing Form State contd
+
+- form state
+
+```js
+{
+  values: {...}
+  visited: {...}
+  errors: {...}
+  isValid: boolean
+}
 ```
