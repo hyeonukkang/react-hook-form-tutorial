@@ -15,6 +15,7 @@
     - [usage](#usage)
     - [Managing Form State](#managing-form-state)
     - [Managing Form State contd](#managing-form-state-contd)
+    - [Devtools](#devtools)
 
 <br/>
 
@@ -92,7 +93,7 @@ Crucial aspect of any business application
 ## Form Setup
 
 ---
-![Example](./sample.png)  
+![Example](./store/sample.png)
 
 <br/>
 
@@ -151,3 +152,21 @@ Every form has a few moving parts that keep changing from the time a user loads 
   isValid: boolean
 }
 ```
+
+<br/>
+
+### Devtools
+
+---
+
+```shell
+npm install @hookform/devtools -D
+```
+
+- click this button over the right top
+
+  ![react-hookform-devtools-icon](./store/react-hookform-devtools.png)
+
+- you can see pannel
+
+  ![react-hookform-devtools-usage](./store/react-hookform-devtools-usage.png)
