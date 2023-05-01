@@ -35,12 +35,30 @@ const YouTubeForm = () => {
       'FieldValues' 형식에 'FormValues' 형식의 username, email, channel 속성이 없습니다.ts(2345)
       you should check useForm type
       */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <S.StyledLabel htmlFor="username">Name</S.StyledLabel>
-        <S.StyledInput type="text" id="username" {...register("username")} />
+        <S.StyledInput
+          type="text"
+          id="username"
+          {...register("username", {
+            required: {
+              value: true,
+              message: "Username is required",
+            },
+          })}
+        />
 
         <S.StyledLabel htmlFor="email">E-mail</S.StyledLabel>
-        <S.StyledInput type="email" id="email" {...register("email")} />
+        <S.StyledInput
+          type="email"
+          id="email"
+          {...register("email", {
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Invalid email format",
+            },
+          })}
+        />
 
         <S.StyledLabel htmlFor="channel">Channel</S.StyledLabel>
         <S.StyledInput type="text" id="channel" {...register("channel")} />

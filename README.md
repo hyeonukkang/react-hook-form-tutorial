@@ -16,6 +16,7 @@
     - [Managing Form State](#managing-form-state)
     - [Managing Form State contd](#managing-form-state-contd)
     - [Devtools](#devtools)
+  - [Form Validation](#form-validation)
 
 <br/>
 
@@ -170,3 +171,15 @@ npm install @hookform/devtools -D
 - you can see pannel
 
   ![react-hookform-devtools-usage](./store/react-hookform-devtools-usage.png)
+
+<br/>
+
+## Form Validation
+
+---
+React Hook Form supports various HTML validation rules
+
+- required
+- minLength & maxLength
+- min & max
+- pattern
