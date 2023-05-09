@@ -17,6 +17,7 @@
     - [Managing Form State contd](#managing-form-state-contd)
     - [Devtools](#devtools)
   - [Form Validation](#form-validation)
+  - [Enhancing React Hook Form](#enhancing-react-hook-form)
 
 <br/>
 
@@ -183,3 +184,20 @@ React Hook Form supports various HTML validation rules
 - minLength & maxLength
 - min & max
 - pattern
+
+<br/>
+
+## Enhancing React Hook Form
+
+---
+Three pillars of dealing with forms
+
+- Form state management
+- Form submission
+- Form validation
+
+Additional Features
+
+- Form state
+- Form submission
+- Form validation

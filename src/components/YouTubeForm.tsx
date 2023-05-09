@@ -6,7 +6,19 @@ import { FormValues } from "./type"
 let renderCount = 0
 
 const YouTubeForm = () => {
-  const form = useForm<FormValues>()
+  const form = useForm<FormValues>({
+    defaultValues: async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users/1"
+      )
+      const data = await response.json()
+      return {
+        username: "Batman",
+        email: data.email,
+        channel: "",
+      }
+    },
+  })
   const { register, control, handleSubmit, formState } = form
   const { errors } = formState
   //  bad case
