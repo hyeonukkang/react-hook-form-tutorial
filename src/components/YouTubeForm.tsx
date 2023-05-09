@@ -16,6 +16,10 @@ const YouTubeForm = () => {
         username: "Batman",
         email: data.email,
         channel: "",
+        social: {
+          twitter: "",
+          facebook: "",
+        },
       }
     },
   })
@@ -106,6 +110,22 @@ const YouTubeForm = () => {
             })}
           />
           <S.StyledError>{errors.channel?.message}</S.StyledError>
+        </S.ItemWrapper>
+
+        <S.ItemWrapper>
+          <S.StyledLabel htmlFor="Twitter">Twitter</S.StyledLabel>
+          <S.StyledInput
+            type="text"
+            id="twitter"
+            {...register("social.twitter")}
+          />
+
+          <S.StyledLabel htmlFor="Facebook">Facebook</S.StyledLabel>
+          <S.StyledInput
+            type="text"
+            id="facebook"
+            {...register("social.facebook")}
+          />
         </S.ItemWrapper>
 
         <button>Submit</button>
